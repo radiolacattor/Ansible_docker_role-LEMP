@@ -1,0 +1,16 @@
+- name: clone
+  ansible.builtin.git:
+    force: yes
+    repo: https://github.com/stevenliebregt/docker-compose-lemp-stack.git
+    dest: "{{ home }}"
+
+- name: copy config
+  copy:
+    src: "{{ cred_env }}"
+    dest: "{{ home }}"
+
+- name: deploy lemp stack
+  shell:
+    chdir: "{{ home }}"
+    cmd: docker-compose up -d
+

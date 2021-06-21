@@ -1,0 +1,8 @@
+---
+- name: hosts
+  hosts: all
+  vars_files:
+    - web/vars/myvars.yaml
+  become: true
+  roles:
+    - web
