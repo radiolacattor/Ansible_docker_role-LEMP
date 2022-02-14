@@ -16,15 +16,16 @@
 - name: Set up the stable repository
 
   apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+    repo:
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
     state: present
-    update_cache: yes
+    update_cache: true
   tags:
     - docker
 - name: Update apt packages
 
   apt:
-    update_cache: yes
+    update_cache: true
   tags:
     - docker
 - name: Install docker
@@ -32,7 +33,7 @@
   apt:
     name: docker-ce
     state: present
-    update_cache: yes
+    update_cache: true
   #notify: Start docker on boot
   tags:
     - docker
@@ -41,12 +42,13 @@
   user:
     name: "ubuntu"
     group: "docker"
-    append: yes
+    append: true
   tags:
     - docker
 - name: Install docker-compose
 
-  get_url: 
-    url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
-    dest: /usr/local/bin/docker-compose
-    mode: 'u+x,g+x'
+  get_url:
+  url : 
+    https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+  dest: /usr/local/bin/docker-compose
+  mode: 'u+x,g+x'
