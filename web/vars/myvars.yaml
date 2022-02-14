@@ -1,3 +1,3 @@
 ---
-  - home: /home/lemp
-  - cred_env: path/to/.env
+- home: /home/lemp
+- cred_env: path/to/.env

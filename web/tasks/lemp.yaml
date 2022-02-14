@@ -1,6 +1,7 @@
+---
 - name: clone
   ansible.builtin.git:
-    force: yes
+    force: true
     repo: https://github.com/stevenliebregt/docker-compose-lemp-stack.git
     dest: "{{ home }}"
 
@@ -13,4 +14,3 @@
   shell:
     chdir: "{{ home }}"
     cmd: docker-compose up -d
-
