@@ -13,4 +13,3 @@
   shell:
     chdir: "{{ home }}"
     cmd: docker-compose up -d
-
